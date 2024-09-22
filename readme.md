@@ -3,5 +3,5 @@
 A 1-minute sunrise in CSS.
 
 <p align="center">
-  <img width="350" alt="Sunrise animation" src="https://github.com/maudnals/maudnals.github.io/blob/main/images/tech-night-talk-japan.jpg?raw=true"><br/>
+  <img width="400" alt="Sunrise animation" src="https://github.com/maudnals/csssunrise/blob/main/csssunrise.gif?raw=true"><br/>
 </p>
