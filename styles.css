@@ -1,0 +1,362 @@
+html,
+body {
+  margin: 0;
+  padding: 0;
+  font-family: sans-serif;
+  height: 100vh;
+  --sun-size: 3rem;
+  --sky-size: 70%;
+  --window-size: 1.4rem;
+}
+
+body {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  background-color: #000521;
+  font-family: 'Courier New', Courier, monospace;
+  color: white;
+  animation: bla 30s 22s linear forwards;
+}
+
+.title {
+  opacity: 0;
+  padding: 0.6rem 0 0 0;
+  letter-spacing: 5px;
+  animation: appear 10s ease-out 2s forwards;
+}
+
+.subtitle {
+  opacity: 0;
+  padding: 0 0 2rem 0;
+  animation: appear 6s ease-out 6s forwards;
+}
+
+@keyframes bla {
+  0% {
+    background-color: #000521;
+  }
+  25% {
+    background-color: #150021;
+  }
+  45% {
+    background-color: #6c061d;
+  }
+  100% {
+    background-color: #ffd3ac;
+  }
+}
+
+.wrapper {
+  width: 60vw;
+  height: 60vh;
+  position: relative;
+  overflow: hidden;
+}
+
+/* MAIN */
+#sky {
+  height: var(--sky-size);
+  background: radial-gradient(
+      ellipse at top,
+      black,
+      rgba(0, 0, 255, 0.829),
+      transparent
+    ),
+    radial-gradient(ellipse at center, black, #ff622e),
+    radial-gradient(ellipse at bottom, #e66465, red, transparent);
+  background-size: 600% 100%;
+  background-position: 500% 40%;
+  animation: sunrise-sky 442s 12s forwards linear;
+}
+
+/* MAIN */
+#blue-layer {
+  height: var(--sky-size);
+  width: 100%;
+  position: absolute;
+  top: 0;
+  opacity: 0;
+  background-image: linear-gradient(
+    0deg,
+    #9ab3ba 0%,
+    #5b80ba 34%,
+    #0048c7 77%,
+    #0026a1 100%
+  );
+  background-size: 100% 100%;
+  animation: appear 34s 40s forwards ease-out;
+}
+
+.wave {
+  color: hwb(0 100% 0% / 0.5);
+  font-size: 1.2rem;
+  opacity: 0;
+  position: absolute;
+}
+
+.wave-1 {
+  left: 27%;
+  top: 65%;
+  animation: wave 16s 3s forwards infinite;
+}
+
+.wave-2 {
+  left: 15%;
+  top: 8%;
+  animation: wave 22s 1s forwards infinite;
+}
+
+.wave-3 {
+  left: 77%;
+  top: 25%;
+  animation: wave 13s 12s forwards infinite;
+}
+
+.wave-4 {
+  left: 56%;
+  top: 48%;
+  animation: wave 32s 7s forwards infinite;
+}
+
+.wave-5 {
+  left: 62%;
+  top: 19%;
+  animation: wave 18s 9s forwards infinite;
+}
+
+.stars-wrapper {
+  animation: rot 80s 0s forwards infinite, disappear 24s 25s forwards ease-in;
+  transform: rotate(-4deg) translate3d(3rem, 10rem, 0);
+  height: 10rem;
+}
+
+@keyframes rot {
+  0% {
+    transform: rotate(-4deg) translate3d(3rem, 10rem, 0);
+  }
+  100% {
+    transform: rotate(50deg) translate3d(3rem, 10rem, 0);
+  }
+}
+
+.star {
+  color: rgba(255, 255, 255, 0.7);
+  position: absolute;
+}
+
+.star::after {
+  content: '*';
+}
+
+.boat {
+  font-size: 1.8rem;
+  position: absolute;
+  transform: translateX(-1.4rem) translateY(3.6rem);
+  animation: navigate 220s 9s forwards;
+  color: white;
+}
+
+@keyframes navigate {
+  0% {
+    transform: translateX(-1rem) translateY(3.6rem);
+    filter: brightness(0.7);
+  }
+  100% {
+    transform: translateX(60vw) translateY(3.6rem);
+    filter: brightness(1);
+  }
+}
+
+.star-1 {
+  left: 15%;
+  top: 23%;
+  font-size: 1.6rem;
+  animation: blink 4.5s ease-in 10;
+}
+
+.star-2 {
+  font-size: 0.9rem;
+  left: 24%;
+  bottom: 55%;
+  animation: blink 5s 1s ease-in 10;
+}
+
+.star-3 {
+  left: 62%;
+  font-size: 1.8rem;
+  top: -44%;
+  animation: blink 6.1s 5s ease-in 10;
+}
+
+.star-4 {
+  left: 81%;
+  font-size: 1rem;
+  top: 50%;
+  animation: blink 4.1s 4.4s ease-in 10;
+}
+
+.star-5 {
+  left: 87%;
+  font-size: 0.6rem;
+  top: 1%;
+  animation: blink 5.1s 0.7s ease-in 10;
+}
+
+.star-6 {
+  font-size: 1rem;
+  left: 1%;
+  top: 80%;
+  animation: blink 8.1s 8.4s ease-in 10;
+}
+
+.star-7 {
+  font-size: 0.57rem;
+  left: 27%;
+  top: 31%;
+  animation: blink 6s 1s ease-in 10;
+}
+
+.star-8 {
+  font-size: 1rem;
+  left: 96%;
+  top: 82%;
+  animation: blink 8.1s 8.4s ease-in 10;
+}
+
+@keyframes wave {
+  0% {
+    transform: translateX(0);
+    opacity: 0.4;
+  }
+  30% {
+    transform: translateX(0);
+    opacity: 0;
+  }
+  59% {
+    transform: translateX(40%);
+    opacity: 0;
+  }
+  60% {
+    transform: translateX(40%);
+    opacity: 0.4;
+  }
+  90% {
+    transform: translateX(40%);
+    opacity: 0;
+  }
+  100% {
+    transform: translateX(0);
+    opacity: 0;
+  }
+}
+
+@keyframes blink {
+  0% {
+    opacity: 1;
+  }
+  100% {
+    opacity: 0.3;
+  }
+}
+
+@keyframes appear {
+  0% {
+    opacity: 0;
+  }
+  100% {
+    opacity: 1;
+  }
+}
+
+@keyframes disappear {
+  0% {
+    opacity: 1;
+  }
+  100% {
+    opacity: 0;
+  }
+}
+
+/* MAIN */
+#sea {
+  width: 100%;
+  height: calc(100% - var(--sky-size));
+  position: absolute;
+  bottom: 0;
+  background-color: rgb(12, 15, 46);
+  color: rgb(12, 15, 46);
+  animation: sea-color 37s 30s forwards linear;
+}
+
+@keyframes sea-color {
+  0% {
+    background-color: rgb(12, 15, 46);
+    color: rgb(12, 15, 46);
+  }
+  60% {
+    background-color: #0035bc;
+    color: #0035bc;
+  }
+  100% {
+    background-color: #0056b9;
+    color: #0056b9;
+  }
+}
+
+/* MAIN */
+#sun {
+  background-color: rgb(166, 3, 0);
+  box-shadow: 0 0 21px 8px rgb(166, 3, 0, 0.8);
+  border-radius: 1000px;
+  height: var(--sun-size);
+  width: var(--sun-size);
+  position: absolute;
+  top: calc(var(--sky-size) + 1rem);
+  left: 7%;
+  /* animation: sunrise 90s 13s forwards cubic-bezier(0, 0, 0.46, 1); */
+  animation: sunrise 50s 30s forwards linear;
+}
+
+@keyframes sunrise {
+  0% {
+    top: calc(var(--sky-size) + 1rem);
+    left: 7%;
+    background-color: rgb(166, 3, 0);
+    box-shadow: 0 0 21px 8px rgba(166, 3, 0, 0.8);
+  }
+  20% {
+    background-color: rgb(255, 51, 0);
+    box-shadow: 0 0 21px 8px rgba(255, 51, 0, 0.8);
+  }
+  40% {
+    background-color: rgb(255, 149, 0);
+    box-shadow: 0 0 30px 15px rgba(255, 149, 0, 0.8);
+  }
+  70% {
+    /* background-color: rgb(255, 208, 0); */
+    /* box-shadow: 0 0 50px 20px rgba(255, 208, 0, 0.8); */
+  }
+  80% {
+    top: 3rem;
+    left: calc(100% + 10rem);
+    background-color: rgb(255, 187, 138);
+    box-shadow: 0 0 60px 30px rgba(255, 187, 138, 0.85);
+  }
+  100% {
+    top: 3rem;
+    left: calc(100% + 10rem);
+    background-color: rgb(255, 230, 184);
+    box-shadow: 0 0 80px 40px rgba(255, 230, 184, 0.93);
+  }
+}
+
+@keyframes sunrise-sky {
+  0% {
+    background-position: 500% 40%;
+  }
+  100% {
+    background-position: 50% 0%;
+  }
+}
